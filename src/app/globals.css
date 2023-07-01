@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: '#F3F3F3';
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+}
+
+/* span {
+  color: #fff;
+} */
+
+@layer components {
+  .card-area {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 pt-10;
+  }
+  .card-icon {
+    @apply text-[#7c7c7c] h-5 w-5;
+  }
+}
