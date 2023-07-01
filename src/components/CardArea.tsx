@@ -40,10 +40,10 @@ function CardArea({ users }: Props) {
     setDeleteModalOpen(false);
   };
 
-  const confirmEdit = (values: any) => {
-    userList[userForEditIndex].name = values.fullName;
+  const confirmEdit = (values: User) => {
+    userList[userForEditIndex].name = values.name;
     userList[userForEditIndex].email = values.email;
-    userList[userForEditIndex].phone = values.phoneNumber;
+    userList[userForEditIndex].phone = values.phone;
     userList[userForEditIndex].website = values.website;
 
     setUserList([...userList]);
@@ -59,12 +59,12 @@ function CardArea({ users }: Props) {
     setEditModalOpen(true);
     setUserForEdit(userList[index]);
     setUserForEditIndex(index);
-  }
+  };
 
   return (
     <div className="py-5">
       <div className="card-area">
-        {userList.map((user: any, index: number) => (
+        {userList.map((user: User, index: number) => (
           <UserCard
             key={index}
             user={user}

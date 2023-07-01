@@ -3,8 +3,8 @@ import { Modal, Button, Form, Input } from "antd";
 import User from "@/types/user.type";
 type Props = {
   isEditModalOpen: boolean;
-  confirmEdit: any;
-  handleCancel: any;
+  confirmEdit: (values: User) => void;
+  handleCancel: () => void;
   userForEdit?: User;
 };
 
@@ -18,9 +18,9 @@ function EditModal({
 
   useEffect(() => {
     form.setFieldsValue({
-      fullName: userForEdit?.name,
+      name: userForEdit?.name,
       email: userForEdit?.email,
-      phoneNumber: userForEdit?.phone,
+      phone: userForEdit?.phone,
       website: userForEdit?.website,
     });
   }, [
@@ -31,9 +31,6 @@ function EditModal({
     userForEdit?.website,
   ]);
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
-  };
   return (
     <Modal
       title="Edit Card"
@@ -49,12 +46,11 @@ function EditModal({
         style={{ maxWidth: 600 }}
         initialValues={{ remember: true }}
         onFinish={confirmEdit}
-        onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
         <Form.Item
-          label="Full Name"
-          name="fullName"
+          label="Name"
+          name="name"
           rules={[{ required: true, message: "Please input your name." }]}
         >
           <Input />
@@ -69,8 +65,8 @@ function EditModal({
         </Form.Item>
 
         <Form.Item
-          label="Phone Number"
-          name="phoneNumber"
+          label="Phone"
+          name="phone"
           rules={[
             { required: true, message: "Please input your phone number." },
           ]}

@@ -15,10 +15,10 @@ import IconButton from "./buttons/IconButton";
 
 type Props = {
   user: User;
-  deleteCard: any;
-  editCard: any;
+  deleteCard: (userIndex: number) => void;
+  editCard: (index: number) => void;
   index: number;
-  toggleHeart: any;
+  toggleHeart: (userIndex: number) => void;
 };
 
 function UserCard({ user, deleteCard, editCard, index, toggleHeart }: Props) {
@@ -39,10 +39,7 @@ function UserCard({ user, deleteCard, editCard, index, toggleHeart }: Props) {
           <EnvelopeIcon className="card-icon" />
           <p className="text-sm">{user.email}</p>
         </a>
-        <a
-          href={`tel:${user.phone}`}
-          className="flex flex-row gap-1.5 pb-2"
-        >
+        <a href={`tel:${user.phone}`} className="flex flex-row gap-1.5 pb-2">
           <PhoneIcon className="card-icon" />
           <p className="text-sm">{user.phone}</p>
         </a>

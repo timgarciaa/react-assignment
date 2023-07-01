@@ -1,6 +1,6 @@
 import React from "react";
 
-type Props = { onClick: any, icon: React.ReactNode };
+type Props = { onClick: () => void; icon: React.ReactNode };
 
 function IconButton({ onClick, icon }: Props) {
   return (
