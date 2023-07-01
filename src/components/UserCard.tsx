@@ -33,20 +33,27 @@ function UserCard({ user, deleteCard, editCard, index, toggleHeart }: Props) {
           <p className="font-semibold">{user.name}</p>
         </div>
         <a
-          className="flex flex-row gap-1.5 pb-2 cursor-pointer"
           href={`mailto:${user.email}`}
+          className="flex flex-row gap-1.5 pb-2 cursor-pointer"
         >
           <EnvelopeIcon className="card-icon" />
           <p className="text-sm">{user.email}</p>
         </a>
-        <div className="flex flex-row gap-1.5 pb-2">
+        <a
+          href={`tel:${user.phone}`}
+          className="flex flex-row gap-1.5 pb-2"
+        >
           <PhoneIcon className="card-icon" />
           <p className="text-sm">{user.phone}</p>
-        </div>
-        <div className="flex flex-row gap-1.5 pb-2">
+        </a>
+        <a
+          href={`http://${user.website}`}
+          className="flex flex-row gap-1.5 pb-2"
+          target="_blank"
+        >
           <GlobeAltIcon className="card-icon" />
-          <p className="text-sm">{user.website}</p>
-        </div>
+          <p className="text-sm">{`http://${user.website}`}</p>
+        </a>
       </div>
 
       <div className="flex flex-row justify-evenly bg-gray-100 border-t border-gray-300 items-center">
